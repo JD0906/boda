@@ -4,6 +4,7 @@ import type React from "react";
 import { Button } from "@/components/ui/button";
 import { Wine, Utensils, Coffee, Car, Music, PartyPopper } from "lucide-react";
 import DressCarousel from "./dress-carousel";
+import Image from "next/image";
 
 interface ContentCardsProps {
   isDarkMode: boolean;
@@ -84,7 +85,9 @@ export default function ContentCards({
 
         {/* Dress Images Row - No Card, Larger Images */}
         <div className="flex justify-center mb-8 w-full mx-auto">
-          <img
+          <Image
+            width={1000}
+            height={1000}
             src="/images/historia.jpeg"
             alt={`Dress example ${0 + 1}`}
             className="w-200 h-200 object-center transition-transform duration-300 hover:scale-105 max-w-96 mx-auto"
@@ -111,7 +114,9 @@ export default function ContentCards({
         style={{ minHeight: "100vh", height: "100vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
-        <img
+        <Image
+          width={1000}
+          height={1000}
           src="/images/img10.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
@@ -203,7 +208,9 @@ export default function ContentCards({
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
-        <img
+        <Image
+          width={1000}
+          height={1000}
           src="/images/sesion2.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
@@ -254,7 +261,9 @@ export default function ContentCards({
 
         {/* Dress Images Row - No Card, Larger Images */}
         <div className="flex justify-center mb-8 w-full mx-auto">
-          <img
+          <Image
+            width={1000}
+            height={1000}
             src="/images/dress6.png"
             alt={`Dress example ${0 + 1}`}
             className="w-200 h-200 object-center transition-transform duration-300 hover:scale-105 max-w-96 mx-auto"
@@ -281,7 +290,9 @@ export default function ContentCards({
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
-        <img
+        <Image
+          width={1000}
+          height={1000}
           src="/images/sesion1.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
@@ -377,7 +388,9 @@ export default function ContentCards({
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
-        <img
+        <Image
+          width={1000}
+          height={1000}
           src="/images/sesion3.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
@@ -450,7 +463,9 @@ export default function ContentCards({
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
-        <img
+        <Image
+          width={1000}
+          height={1000}
           src="/images/sesion15.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
@@ -524,7 +539,9 @@ export default function ContentCards({
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
-        <img
+        <Image
+          width={1000}
+          height={1000}
           src="/images/sesion11.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"

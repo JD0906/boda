@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface DressCarouselProps {
   isDarkMode: boolean;
@@ -67,7 +68,9 @@ export default function DressCarousel({
         >
           {dressImages.map((image, index) => (
             <div key={index} className="w-full flex-shrink-0">
-              <img
+              <Image
+                width={1000}
+                height={1000}
                 src={image}
                 alt={`Dress example ${index + 1}`}
                 className="w-full h-96 md:h-[500px] object-cover object-center"

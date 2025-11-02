@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useRef, useEffect, useState } from "react";
+import Image from "next/image";
 
 interface CarouselImage {
   id: number;
@@ -234,7 +235,9 @@ export default function ImageCarousel({
             key={`${image.id}-${index}`}
             className="flex-shrink-0 w-1/2 md:w-1/3 h-full"
           >
-            <img
+            <Image
+              width={1000}
+              height={1000}
               alt={image.path}
               src={image.path}
               draggable={false}
