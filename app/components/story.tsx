@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -10,51 +10,6 @@ interface StoryProps {
 }
 
 export default function Story({ isDarkMode, visibleSections }: StoryProps) {
-  const searchParams = useSearchParams();
-  const [invitados, setInvitados] = useState<string[]>([]);
-
-  useEffect(() => {
-    try {
-      // Obtener todos los valores del parámetro "Invitados" (soporta múltiples valores)
-      const allInvitados = searchParams.getAll("invitados");
-
-      let nombres: string[] = [];
-
-      if (allInvitados.length > 0) {
-        // Si hay múltiples parámetros con el mismo nombre, usar todos
-        if (allInvitados.length > 1) {
-          nombres = allInvitados.map((nombre) =>
-            decodeURIComponent(nombre.trim())
-          );
-        } else {
-          // Solo un parámetro, intentar parsear diferentes formatos
-          const invitadosParam = allInvitados[0];
-
-          // Intentar parsear como JSON array primero
-          if (invitadosParam.startsWith("[") && invitadosParam.endsWith("]")) {
-            nombres = JSON.parse(invitadosParam);
-          }
-          // Si viene como valores separados por coma
-          else if (invitadosParam.includes(",")) {
-            nombres = invitadosParam
-              .split(",")
-              .map((nombre) => decodeURIComponent(nombre.trim()));
-          }
-          // Si viene como un solo valor
-          else {
-            nombres = [decodeURIComponent(invitadosParam)];
-          }
-        }
-
-        if (nombres.length > 0) {
-          setInvitados(nombres);
-        }
-      }
-    } catch (error) {
-      console.error("Error parsing Invitados parameter:", error);
-    }
-  }, [searchParams]);
-
   return (
     <div
       id="welcome"
@@ -103,26 +58,102 @@ export default function Story({ isDarkMode, visibleSections }: StoryProps) {
         <br />
       </p>
 
-      <p
-        className={`text-xl md:text-xl leading-relaxed text-center font-serif font-light transition-colors duration-300 text-black ${
-          isDarkMode ? "text-stone-300" : "text-black"
-        }`}
-      >
-        {invitados.length > 0 ? (
-          invitados.map((nombre, index) => (
-            <React.Fragment key={index}>
-              <br />
-              {nombre}
-              <br />
-            </React.Fragment>
-          ))
-        ) : (
-          <React.Fragment>
+      <Suspense
+        fallback={
+          <p
+            className={`text-xl md:text-xl leading-relaxed text-center font-serif font-light transition-colors duration-300 ${
+              isDarkMode ? "text-stone-300" : "text-black"
+            }`}
+          >
             <br />
-            No hay invitados
-          </React.Fragment>
-        )}
-      </p>
+            Cargando invitados...
+          </p>
+        }
+      >
+        <InvitadosList isDarkMode={isDarkMode} />
+      </Suspense>
     </div>
+  );
+}
+
+// Componente interno que usa useSearchParams - debe estar envuelto en Suspense
+function InvitadosList({ isDarkMode }: { isDarkMode: boolean }) {
+  const searchParams = useSearchParams();
+  const [invitados, setInvitados] = useState<string[]>([]);
+
+  useEffect(() => {
+    try {
+      // Obtener todos los valores del parámetro "Invitados" (soporta múltiples valores)
+      const allInvitados = searchParams.getAll("invitados");
+
+      let nombres: string[] = [];
+
+      if (allInvitados.length > 0) {
+        // Si hay múltiples parámetros con el mismo nombre, usar todos
+        if (allInvitados.length > 1) {
+          nombres = allInvitados.map((nombre) =>
+            decodeURIComponent(nombre.trim())
+          );
+        } else {
+          // Solo un parámetro, intentar parsear diferentes formatos
+          const invitadosParam = allInvitados[0];
+
+          // Intentar parsear como JSON array primero
+          if (invitadosParam.startsWith("[") && invitadosParam.endsWith("]")) {
+            nombres = JSON.parse(invitadosParam);
+          }
+          // Si viene como valores separados por coma
+          else if (invitadosParam.includes(",")) {
+            nombres = invitadosParam
+              .split(",")
+              .map((nombre) => decodeURIComponent(nombre.trim()));
+          }
+          // Si viene como un solo valor
+          else {
+            nombres = [decodeURIComponent(invitadosParam)];
+          }
+        }
+
+        if (nombres.length > 0) {
+          setInvitados(nombres);
+        }
+      }
+    } catch (error) {
+      console.error("Error parsing Invitados parameter:", error);
+    }
+  }, [searchParams]);
+
+  return <InvitadosListContent invitados={invitados} isDarkMode={isDarkMode} />;
+}
+
+// Componente interno que renderiza la lista de invitados
+function InvitadosListContent({
+  invitados,
+  isDarkMode,
+}: {
+  invitados: string[];
+  isDarkMode: boolean;
+}) {
+  return (
+    <p
+      className={`text-xl md:text-xl leading-relaxed text-center font-serif font-light transition-colors duration-300 ${
+        isDarkMode ? "text-stone-300" : "text-black"
+      }`}
+    >
+      {invitados.length > 0 ? (
+        invitados.map((nombre, index) => (
+          <React.Fragment key={index}>
+            <br />
+            {nombre}
+            <br />
+          </React.Fragment>
+        ))
+      ) : (
+        <React.Fragment>
+          <br />
+          No hay invitados
+        </React.Fragment>
+      )}
+    </p>
   );
 }
