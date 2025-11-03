@@ -91,6 +91,9 @@ export default function ContentCards({
             src="/images/historia.jpeg"
             alt={`Dress example ${0 + 1}`}
             className="w-200 h-200 object-center transition-transform duration-300 hover:scale-105 max-w-96 mx-auto"
+            loading="lazy"
+            quality={85}
+            sizes="(max-width: 768px) 100vw, 384px"
             style={{
               animation: visibleSections.has("history_details")
                 ? `bounceIn 0.6s ease-out ${0 * 0.1}s both`
@@ -120,6 +123,9 @@ export default function ContentCards({
           src="/images/img10.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+          quality={85}
+          sizes="100vw"
           style={{ minHeight: "100vh", height: "100vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -214,6 +220,9 @@ export default function ContentCards({
           src="/images/sesion2.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+          quality={85}
+          sizes="100vw"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -267,6 +276,9 @@ export default function ContentCards({
             src="/images/dress6.png"
             alt={`Dress example ${0 + 1}`}
             className="w-200 h-200 object-center transition-transform duration-300 hover:scale-105 max-w-96 mx-auto"
+            loading="lazy"
+            quality={85}
+            sizes="(max-width: 768px) 100vw, 384px"
             style={{
               animation: visibleSections.has("details")
                 ? `bounceIn 0.6s ease-out ${0 * 0.1}s both`
@@ -296,6 +308,9 @@ export default function ContentCards({
           src="/images/sesion1.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+          quality={85}
+          sizes="100vw"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -394,6 +409,9 @@ export default function ContentCards({
           src="/images/sesion3.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+          quality={85}
+          sizes="100vw"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -469,6 +487,9 @@ export default function ContentCards({
           src="/images/sesion15.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+          quality={85}
+          sizes="100vw"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -545,6 +566,9 @@ export default function ContentCards({
           src="/images/sesion11.jpg"
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
+          loading="lazy"
+          quality={85}
+          sizes="100vw"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}

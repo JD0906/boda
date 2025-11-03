@@ -242,6 +242,10 @@ export default function ImageCarousel({
               src={image.path}
               draggable={false}
               className="w-full h-full object-cover select-none"
+              loading={index < 3 ? "eager" : "lazy"}
+              priority={index < 3}
+              quality={85}
+              sizes="(max-width: 768px) 50vw, 33vw"
             />
           </div>
         ))}

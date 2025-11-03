@@ -40,6 +40,7 @@ export default function Hero({ isDarkMode, isVideoPlaying }: HeroProps) {
           loop
           muted
           playsInline
+          preload="metadata"
           style={{
             transition: "opacity 0.7s",
             opacity: isVideoPlaying
