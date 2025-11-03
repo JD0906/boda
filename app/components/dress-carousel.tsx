@@ -74,9 +74,10 @@ export default function DressCarousel({
                 src={image}
                 alt={`Dress example ${index + 1}`}
                 className="w-full h-96 md:h-[500px] object-cover object-center"
-                loading={index === 0 ? "eager" : "lazy"}
-                priority={index === 0}
-                quality={85}
+                loading="eager"
+                priority={index < 2}
+                quality={90}
+                fetchPriority={index === 0 ? "high" : "auto"}
                 sizes="(max-width: 768px) 100vw, 768px"
                 style={{
                   animation: visibleSections.has("details")
