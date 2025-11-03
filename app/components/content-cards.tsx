@@ -28,15 +28,7 @@ export default function ContentCards({
   return (
     <div>
       {/* History Card */}
-      <div
-        id="story"
-        data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("story")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
-      >
+      <div id="story" data-section className={`p-8 max-w-2xl mx-auto`}>
         <div className="text-center mb-8">
           <h2
             className={`text-6xl md:text-8xl font-script font-light tracking-[0.2em] mb-6 transition-colors duration-300 ${
@@ -94,11 +86,6 @@ export default function ContentCards({
             loading="lazy"
             quality={75}
             sizes="(max-width: 768px) 100vw, 800px"
-            style={{
-              animation: visibleSections.has("history_details")
-                ? `bounceIn 0.6s ease-out ${0 * 0.1}s both`
-                : "none",
-            }}
           />
         </div>
 
@@ -109,11 +96,7 @@ export default function ContentCards({
       <div
         id="venue"
         data-section
-        className={`relative w-full ${
-          visibleSections.has("venue")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`relative w-full`}
         style={{ minHeight: "100vh", height: "100vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
@@ -138,15 +121,7 @@ export default function ContentCards({
         </div>
       </div>
 
-      <div
-        id="location"
-        data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("location")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
-      >
+      <div id="location" data-section className={`p-8 max-w-2xl mx-auto`}>
         <div className="text-center mb-8">
           <h2
             className={`text-6xl md:text-8xl font-script font-light tracking-[0.2em] mb-6 transition-colors duration-300 ${
@@ -172,7 +147,7 @@ export default function ContentCards({
         <div className="flex justify-center">
           <Button
             asChild
-            className="px-6 rounded-2xl font-serif font-light tracking-wide text-base py-2"
+            className="px-6 rounded-2xl font-serif font-light tracking-wide text-base py-2 bg-black text-white hover:bg-black/90"
             variant={isDarkMode ? "secondary" : "default"}
           >
             <a
@@ -190,11 +165,7 @@ export default function ContentCards({
       <div
         id="location_details"
         data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("location_details")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`p-8 max-w-2xl mx-auto`}
       >
         <DressCarousel
           isDarkMode={isDarkMode}
@@ -206,11 +177,7 @@ export default function ContentCards({
       <div
         id="dress"
         data-section
-        className={`relative w-full ${
-          visibleSections.has("dress")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`relative w-full`}
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
@@ -235,15 +202,7 @@ export default function ContentCards({
         </div>
       </div>
 
-      <div
-        id="details"
-        data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("details")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
-      >
+      <div id="details" data-section className={`p-8 max-w-2xl mx-auto`}>
         <p
           className={`text-md md:text-lg text-center mb-8 leading-relaxed font-serif transition-colors duration-300 font-bold ${
             isDarkMode ? "text-stone-400" : "text-black"
@@ -279,11 +238,6 @@ export default function ContentCards({
             loading="lazy"
             quality={75}
             sizes="(max-width: 768px) 100vw, 800px"
-            style={{
-              animation: visibleSections.has("details")
-                ? `bounceIn 0.6s ease-out ${0 * 0.1}s both`
-                : "none",
-            }}
           />
         </div>
 
@@ -294,11 +248,7 @@ export default function ContentCards({
       <div
         id="timeline"
         data-section
-        className={`relative w-full ${
-          visibleSections.has("timeline")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`relative w-full`}
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
@@ -326,11 +276,7 @@ export default function ContentCards({
       <div
         id="details_timeline"
         data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("details_timeline")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`p-8 max-w-2xl mx-auto`}
       >
         {/* Timeline */}
         <div className="relative max-w-3xl mx-auto">
@@ -395,11 +341,7 @@ export default function ContentCards({
       <div
         id="gift"
         data-section
-        className={`relative w-full ${
-          visibleSections.has("gift")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`relative w-full`}
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
@@ -424,15 +366,7 @@ export default function ContentCards({
         </div>
       </div>
 
-      <div
-        id="gift_details"
-        data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("gift_details")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
-      >
+      <div id="gift_details" data-section className={`p-8 max-w-2xl mx-auto`}>
         <div className="mt-8 mb-8 text-center">
           <p
             className={`text-md md:text-lg text-justify font-serif font-light transition-colors duration-300 ${
@@ -473,11 +407,7 @@ export default function ContentCards({
       <div
         id="rsvp"
         data-section
-        className={`relative w-full ${
-          visibleSections.has("rsvp")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`relative w-full`}
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
@@ -502,15 +432,7 @@ export default function ContentCards({
         </div>
       </div>
 
-      <div
-        id="rsvp_details"
-        data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("rsvp_details")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
-      >
+      <div id="rsvp_details" data-section className={`p-8 max-w-2xl mx-auto`}>
         <div className="text-center mb-8">
           <p
             className={`text-md md:text-lg text-center mb-8 leading-relaxed font-serif font-light transition-colors duration-300 ${
@@ -524,7 +446,7 @@ export default function ContentCards({
         <div className="space-y-6 flex justify-center">
           <Button
             asChild
-            className="px-6 rounded-2xl font-serif font-light tracking-wide text-base py-2"
+            className="px-6 rounded-2xl font-serif font-light tracking-wide text-base py-2 bg-black text-white hover:bg-black/90"
             variant={isDarkMode ? "secondary" : "default"}
           >
             <a
@@ -552,11 +474,7 @@ export default function ContentCards({
       <div
         id="recommendations"
         data-section
-        className={`relative w-full ${
-          visibleSections.has("recommendations")
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8 pointer-events-none"
-        }`}
+        className={`relative w-full`}
         style={{ minHeight: "50vh", height: "50vh" }}
       >
         {/* Imagen de fondo que abarca todo el width y alto */}
