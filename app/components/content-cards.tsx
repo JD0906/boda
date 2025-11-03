@@ -582,10 +582,10 @@ export default function ContentCards({
       </div>
 
       <div
-        id="recommendationsdetails"
+        id="reco_details"
         data-section
         className={`p-8 max-w-2xl mx-auto space-y-8 ${
-          visibleSections.has("recommendationsdetails")
+          visibleSections.has("reco_details")
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-8 pointer-events-none"
         }`}
