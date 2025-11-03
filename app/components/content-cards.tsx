@@ -598,102 +598,181 @@ export default function ContentCards({
       </div>
 
       <div
-        id="recommendations_details"
+        id="recommendationsdetails"
         data-section
-        className={`p-8 max-w-2xl mx-auto ${
-          visibleSections.has("recommendations_details")
+        className={`p-8 max-w-2xl mx-auto space-y-8 ${
+          visibleSections.has("recommendationsdetails")
             ? "opacity-100 translate-y-0"
             : "opacity-0 translate-y-8 pointer-events-none"
         }`}
       >
+        {/* Clima Section */}
+        <div className="space-y-3">
+          <h3
+            className={`text-xl md:text-2xl font-serif font-bold text-center transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Clima
+          </h3>
+          <p
+            className={`text-md md:text-lg text-justify leading-relaxed font-serif font-light transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Enero en Cachí ofrece un clima templado y agradable, con
+            temperaturas que rondan los 23 °C durante la tarde y descienden
+            hasta unos 14 °C por la noche. Te recomendamos llevar un suéter o
+            abrigo liviano, ya que la humedad y la brisa del atardecer pueden
+            sentirse más frescas al caer la noche.
+          </p>
+        </div>
+
+        {/* Calzado Section */}
+        <div className="space-y-3">
+          <h3
+            className={`text-xl md:text-2xl font-serif font-bold text-center transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Calzado
+          </h3>
+          <p
+            className={`text-md md:text-lg text-justify leading-relaxed font-serif font-light transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            La ceremonia se llevará a cabo sobre césped, por lo que te sugerimos
+            optar por tacones de base cuadrada o zapatos cómodos que permitan
+            moverte con facilidad, si quieres estar cómodo y disfrutar de la
+            noche puedes usar tus tenis para la pista de baile.
+          </p>
+        </div>
+
+        {/* Parqueo Section */}
+        <div className="space-y-3">
+          <h3
+            className={`text-xl md:text-2xl font-serif font-bold text-center transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Parqueo
+          </h3>
+          <p
+            className={`text-md md:text-lg text-justify leading-relaxed font-serif font-light transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Habrá parqueo disponible durante toda la noche dentro del recinto,
+            para tu comodidad y seguridad.
+          </p>
+        </div>
+
+        {/* Confirmación de asistencia Section */}
+        <div className="space-y-3">
+          <h3
+            className={`text-xl md:text-2xl font-serif font-bold text-center transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Confirmación de asistencia
+          </h3>
+          <p
+            className={`text-md md:text-lg text-justify leading-relaxed font-serif font-light transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Por favor, confirma tu asistencia completando el formulario
+            disponible en nuestra página web de la invitación. Tu confirmación
+            es esencial para poder contar con tu presencia, ya que de lo
+            contrario no podremos incluirte en la lista final de invitados.
+          </p>
+        </div>
+
+        {/* Invitación personal Section */}
+        <div className="space-y-3">
+          <h3
+            className={`text-xl md:text-2xl font-serif font-bold text-center transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Invitación personal
+          </h3>
+          <p
+            className={`text-md md:text-lg text-justify leading-relaxed font-serif font-light transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            La invitación es exclusiva para las personas cuyos nombres aparecen
+            en ella. No es posible realizar sustituciones ni agregar
+            acompañantes adicionales.
+          </p>
+        </div>
+
+        {/* Hospedaje Section */}
+        <div className="space-y-3">
+          <h3
+            className={`text-xl md:text-2xl font-serif font-bold text-center transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Hospedaje recomendado cerca de Cachí y Orosí
+          </h3>
+          <p
+            className={`text-md md:text-lg text-justify leading-relaxed font-serif font-light transition-colors duration-300 mb-4 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Para quienes deseen quedarse a disfrutar de la zona, te compartimos
+            algunas opciones de hospedaje con diferentes estilos y presupuestos:
+          </p>
+          <ul
+            className={`space-y-4 text-md md:text-lg leading-relaxed font-serif font-light transition-colors duration-300 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            <li className="text-justify">
+              • Hotel Quelitales – elegante, rodeado de naturaleza.
+            </li>
+            <li className="text-justify">
+              • Orosi Lodge – acogedor y con encanto en el valle de Orosí.
+            </li>
+            <li className="text-justify">
+              • Coffee Pickers Village by Hacienda Orosi – moderno, con hermosas
+              vistas y piscina termal.
+            </li>
+            <li className="text-justify">
+              • BYB Finca Chiribita – Idyllisch | Herzlich | Persönlich –
+              alojamiento tipo finca con ambiente familiar y vistas preciosas.
+            </li>
+            <li className="text-justify">
+              • Posada Cañaveral – opción sencilla y práctica cerca del lago.
+            </li>
+            <li className="text-justify">
+              • Grandpa's Hotel & Restaurante – tradicional, con vista al valle
+              y restaurante propio.
+            </li>
+            <li className="text-justify">
+              • Paraíso Orocay Lodge – tranquilo, con habitaciones amplias y
+              terraza panorámica.
+            </li>
+          </ul>
+          <p
+            className={`text-md md:text-lg text-justify leading-relaxed font-serif font-light transition-colors duration-300 mt-4 ${
+              isDarkMode ? "text-stone-400" : "text-black"
+            }`}
+          >
+            Te sugerimos reservar con anticipación, ya que enero es temporada
+            alta en la zona.
+          </p>
+        </div>
+
+        {/* Firma */}
         <p
-          className={`text-md md:text-lg text-justify mb-8 leading-relaxed font-serif font-light transition-colors duration-300 ${
+          className={`text-md md:text-lg text-center mb-8 leading-relaxed font-serif font-light transition-colors duration-300 ${
             isDarkMode ? "text-stone-400" : "text-black"
           }`}
         >
-          <span className="font-bold">Clima</span>
-          <br />
-          <br />
-          Enero en Cachí ofrece un clima templado y agradable, con temperaturas
-          que rondan los 23 °C durante la tarde y descienden hasta unos 14 °C
-          por la noche. Te recomendamos llevar un suéter o abrigo liviano, ya
-          que la humedad y la brisa del atardecer pueden sentirse más frescas al
-          caer la noche.
-          <br />
-          <br />
-          <span className="font-bold">Calzado</span>
-          <br />
-          <br />
-          La ceremonia se llevará a cabo sobre césped, por lo que te sugerimos
-          optar por tacones de base cuadrada o zapatos cómodos que permitan
-          moverte con facilidad, si quieres estar cómodo y disfrutar de la noche
-          puedes usar tus tenis para la pista de baile.
-          <br />
-          <br />
-          <span className="font-bold">Parqueo</span>
-          <br />
-          <br />
-          Habrá parqueo disponible durante toda la noche dentro del recinto,
-          para tu comodidad y seguridad.
-          <br />
-          <br />
-          <span className="font-bold">Confirmación de asistencia</span>
-          <br />
-          <br />
-          Por favor, confirma tu asistencia completando el formulario disponible
-          en nuestra página web de la invitación. Tu confirmación es esencial
-          para poder contar con tu presencia, ya que de lo contrario no podremos
-          incluirte en la lista final de invitados.
-          <br />
-          <br />
-          <span className="font-bold">Invitación personal</span>
-          <br />
-          <br />
-          La invitación es exclusiva para las personas cuyos nombres aparecen en
-          ella. No es posible realizar sustituciones ni agregar acompañantes
-          adicionales.
-          <br />
-          <br />
-          <span className="font-bold">
-            Hospedaje recomendado cerca de Cachí y Orosí
-          </span>
-          <br />
-          <br />
-          Para quienes deseen quedarse a disfrutar de la zona, te compartimos
-          algunas opciones de hospedaje con diferentes estilos y presupuestos:
-          <br />
-          <br />
-          • Hotel Quelitales – elegante, rodeado de naturaleza.
-          <br />
-          <br />
-          • Orosi Lodge – acogedor y con encanto en el valle de Orosí.
-          <br />
-          <br />
-          • Coffee Pickers Village by Hacienda Orosi – moderno, con hermosas
-          vistas y piscina termal.
-          <br />
-          <br />
-          • BYB Finca Chiribita – Idyllisch | Herzlich | Persönlich –
-          alojamiento tipo finca con ambiente familiar y vistas preciosas.
-          <br />
-          <br />
-          • Posada Cañaveral – opción sencilla y práctica cerca del lago.
-          <br />
-          <br />
-          • Grandpa’s Hotel & Restaurante – tradicional, con vista al valle y
-          restaurante propio.
-          <br />
-          <br />
-          • Paraíso Orocay Lodge – tranquilo, con habitaciones amplias y terraza
-          panorámica.
-          <br />
-          <br />
-          Te sugerimos reservar con anticipación, ya que enero es temporada alta
-          en la zona.
-          <br />
-          <br />
-        </p>
-        <p className="text-md md:text-lg text-center text-black mb-8 leading-relaxed font-serif font-light transition-colors duration-300">
           Con mucho cariño, Juan & Joss
         </p>
       </div>
