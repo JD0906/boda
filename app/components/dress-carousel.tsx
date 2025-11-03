@@ -77,7 +77,6 @@ export default function DressCarousel({
                 loading="lazy"
                 quality={75}
                 sizes="(max-width: 768px) 100vw, 800px"
-                placeholder="blur"
                 style={{
                   animation: visibleSections.has("details")
                     ? `bounceIn 0.6s ease-out ${index * 0.1}s both`

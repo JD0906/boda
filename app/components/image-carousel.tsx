@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useEffect, useState } from "react";
+import { useMemo, useRef, useEffect } from "react";
 import Image from "next/image";
 
 interface CarouselImage {
@@ -19,8 +19,6 @@ export default function ImageCarousel({
 }: ImageCarouselProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  const loadingCheckRef = useRef(false);
 
   // Duplicar las imágenes para crear el loop infinito perfecto
   const loopImages = useMemo(
@@ -31,100 +29,8 @@ export default function ImageCarousel({
   // Duración de la animación en segundos
   const animationDuration = carouselImages.length * 5;
 
-  // Manejar la carga de imágenes - solo una vez al montar
+  // Iniciar animación
   useEffect(() => {
-    // Evitar ejecuciones múltiples
-    if (loadingCheckRef.current) return;
-    loadingCheckRef.current = true;
-
-    setImagesLoaded(false);
-
-    let timeoutId: NodeJS.Timeout;
-    let finalTimeoutId: NodeJS.Timeout;
-    let cleanupFunctions: Array<() => void> = [];
-
-    const checkImagesLoaded = () => {
-      const images = scrollContainerRef.current?.querySelectorAll("img");
-      if (!images || images.length === 0) {
-        // Si no hay imágenes, esperar un poco más y volver a intentar
-        timeoutId = setTimeout(() => {
-          if (scrollContainerRef.current) {
-            checkImagesLoaded();
-          } else {
-            setImagesLoaded(true);
-          }
-        }, 200);
-        return;
-      }
-
-      const totalImages = images.length;
-      let loadedCount = 0;
-      let isCompleted = false;
-
-      const handleComplete = () => {
-        if (isCompleted) return;
-        isCompleted = true;
-        finalTimeoutId = setTimeout(() => {
-          setImagesLoaded(true);
-        }, 300);
-      };
-
-      const handleImageLoad = () => {
-        if (isCompleted) return;
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          handleComplete();
-        }
-      };
-
-      const handleImageError = () => {
-        if (isCompleted) return;
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          handleComplete();
-        }
-      };
-
-      // Verificar si todas las imágenes ya están cargadas
-      let alreadyLoaded = 0;
-      images.forEach((img) => {
-        if (img.complete && img.naturalWidth > 0) {
-          alreadyLoaded++;
-        } else {
-          img.addEventListener("load", handleImageLoad, { once: true });
-          img.addEventListener("error", handleImageError, { once: true });
-          cleanupFunctions.push(() => {
-            img.removeEventListener("load", handleImageLoad);
-            img.removeEventListener("error", handleImageError);
-          });
-        }
-      });
-
-      // Si todas ya estaban cargadas
-      if (alreadyLoaded === totalImages) {
-        finalTimeoutId = setTimeout(() => {
-          setImagesLoaded(true);
-        }, 300);
-      }
-    };
-
-    // Dar tiempo para que el DOM se renderice
-    timeoutId = setTimeout(() => {
-      checkImagesLoaded();
-    }, 100);
-
-    return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      if (finalTimeoutId) clearTimeout(finalTimeoutId);
-      cleanupFunctions.forEach((cleanup) => cleanup());
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Ejecutar solo una vez al montar
-
-  // Iniciar animación solo cuando las imágenes estén cargadas
-  useEffect(() => {
-    if (!imagesLoaded) return;
-
     const container = scrollContainerRef.current;
     if (!container) return;
 
@@ -196,7 +102,7 @@ export default function ImageCarousel({
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [carouselImages.length, animationDuration, imagesLoaded]);
+  }, [carouselImages.length, animationDuration]);
 
   return (
     <div
@@ -209,27 +115,7 @@ export default function ImageCarousel({
         height: "70vw",
       }}
     >
-      {/* Loader */}
-      {!imagesLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center z-10 bg-opacity-90 bg-stone-100 dark:bg-neutral-900">
-          <div className="flex flex-col items-center gap-4">
-            <div className="relative w-16 h-16">
-              <div className="absolute inset-0 border-4 border-stone-300 dark:border-neutral-700 rounded-full"></div>
-              <div className="absolute inset-0 border-4 border-transparent border-t-stone-600 dark:border-t-stone-400 rounded-full animate-spin"></div>
-            </div>
-            <p className="text-stone-600 dark:text-stone-400 text-sm">
-              Cargando imágenes...
-            </p>
-          </div>
-        </div>
-      )}
-
-      <div
-        ref={scrollContainerRef}
-        className={`flex h-full ${
-          !imagesLoaded ? "opacity-0" : "opacity-100"
-        } transition-opacity duration-500`}
-      >
+      <div ref={scrollContainerRef} className="flex h-full">
         {loopImages.map((image, index) => (
           <div
             key={`${image.id}-${index}`}
@@ -244,7 +130,6 @@ export default function ImageCarousel({
               loading="lazy"
               quality={75}
               sizes="(max-width: 768px) 100vw, 800px"
-              placeholder="blur"
             />
           </div>
         ))}

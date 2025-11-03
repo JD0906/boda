@@ -94,7 +94,6 @@ export default function ContentCards({
             loading="lazy"
             quality={75}
             sizes="(max-width: 768px) 100vw, 800px"
-            placeholder="blur"
             style={{
               animation: visibleSections.has("history_details")
                 ? `bounceIn 0.6s ease-out ${0 * 0.1}s both`
@@ -127,7 +126,6 @@ export default function ContentCards({
           loading="lazy"
           quality={75}
           sizes="(max-width: 768px) 100vw, 800px"
-          placeholder="blur"
           style={{ minHeight: "100vh", height: "100vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -223,10 +221,8 @@ export default function ContentCards({
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
           loading="lazy"
-          priority
           quality={75}
           sizes="(max-width: 768px) 100vw, 800px"
-          placeholder="blur"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -283,7 +279,6 @@ export default function ContentCards({
             loading="lazy"
             quality={75}
             sizes="(max-width: 768px) 100vw, 800px"
-            placeholder="blur"
             style={{
               animation: visibleSections.has("details")
                 ? `bounceIn 0.6s ease-out ${0 * 0.1}s both`
@@ -314,10 +309,8 @@ export default function ContentCards({
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
           loading="lazy"
-          priority
           quality={75}
           sizes="(max-width: 768px) 100vw, 800px"
-          placeholder="blur"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -417,10 +410,8 @@ export default function ContentCards({
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
           loading="lazy"
-          priority
           quality={75}
           sizes="(max-width: 768px) 100vw, 800px"
-          placeholder="blur"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -497,10 +488,8 @@ export default function ContentCards({
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
           loading="lazy"
-          priority
           quality={75}
           sizes="(max-width: 768px) 100vw, 800px"
-          placeholder="blur"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
@@ -578,10 +567,8 @@ export default function ContentCards({
           alt="Foto final"
           className="absolute inset-0 w-full h-full object-cover object-center z-0"
           loading="lazy"
-          priority
           quality={75}
           sizes="(max-width: 768px) 100vw, 800px"
-          placeholder="blur"
           style={{ minHeight: "50vh", height: "50vh" }}
         />
         {/* Degradado para mejorar la legibilidad del texto */}
