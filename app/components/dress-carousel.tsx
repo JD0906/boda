@@ -69,16 +69,15 @@ export default function DressCarousel({
           {dressImages.map((image, index) => (
             <div key={index} className="w-full flex-shrink-0">
               <Image
-                width={1000}
-                height={1000}
+                width={1200}
+                height={800}
                 src={image}
                 alt={`Dress example ${index + 1}`}
                 className="w-full h-96 md:h-[500px] object-cover object-center"
-                loading="eager"
-                priority={index < 2}
-                quality={90}
-                fetchPriority={index === 0 ? "high" : "auto"}
-                sizes="(max-width: 768px) 100vw, 768px"
+                loading="lazy"
+                quality={75}
+                sizes="(max-width: 768px) 100vw, 800px"
+                placeholder="blur"
                 style={{
                   animation: visibleSections.has("details")
                     ? `bounceIn 0.6s ease-out ${index * 0.1}s both`

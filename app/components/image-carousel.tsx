@@ -236,17 +236,15 @@ export default function ImageCarousel({
             className="flex-shrink-0 w-1/2 md:w-1/3 h-full"
           >
             <Image
-              width={1000}
-              height={1000}
+              width={1200}
+              height={800}
               alt={image.path}
               src={image.path}
-              draggable={false}
               className="w-full h-full object-cover select-none"
-              loading="eager"
-              priority={index < 6}
-              quality={90}
-              sizes="(max-width: 768px) 50vw, 33vw"
-              fetchPriority={index < 3 ? "high" : "auto"}
+              loading="lazy"
+              quality={75}
+              sizes="(max-width: 768px) 100vw, 800px"
+              placeholder="blur"
             />
           </div>
         ))}

@@ -35,12 +35,13 @@ export default function Hero({ isDarkMode, isVideoPlaying }: HeroProps) {
       <div className="absolute inset-0 w-full h-full">
         <video
           className="w-full h-full object-cover"
-          src="/video.MOV"
+          src="/video.mp4"
           autoPlay={isVideoPlaying}
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster="/images/sesion1.jpg"
           style={{
             transition: "opacity 0.7s",
             opacity: isVideoPlaying

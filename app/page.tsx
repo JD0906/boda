@@ -187,7 +187,7 @@ export default function WeddingLanding() {
       />
 
       {/* Background Music */}
-      <audio ref={audioRef} loop preload="auto" className="hidden">
+      <audio ref={audioRef} loop preload="none" className="hidden">
         <source src="/cancion.mp3" type="audio/mp3" />
       </audio>
 
